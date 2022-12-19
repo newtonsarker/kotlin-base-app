@@ -8,7 +8,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.server.testing.testApplication
 import kotlinx.serialization.json.Json
-import ns.io.routes.models.AddOrUpdateMerchantRequest
+import ns.io.app.models.AddOrUpdateMerchantRequest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

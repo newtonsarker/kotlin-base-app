@@ -1,4 +1,4 @@
-package ns.io.routes
+package ns.io.app.routes
 
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application

@@ -1,4 +1,4 @@
-package ns.io.routes.models
+package ns.io.app.models
 
 import kotlinx.serialization.Serializable
 
