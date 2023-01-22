@@ -1,20 +1,33 @@
 package ns.io.client
 
+import ns.io.AppContext
+import ns.io.InstanceFactory
+import ns.io.client.imagine.merchant.IImagineMerchantClient
+import ns.io.client.imagine.merchant.Merchant
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.Test
 
 class ImagineMerchantClientTest {
 
+    private val client = InstanceFactory.get(IImagineMerchantClient::class.java)
     private val mockWebServer = MockWebServer()
-    private val client = ImagineMerchantClient()
+
+    companion object {
+        @BeforeClass
+        @JvmStatic
+        fun init() {
+            AppContext.load()
+        }
+    }
 
     @Before
     fun setUp() {
-        mockWebServer.start(8081)
+        mockWebServer.start(8080)
     }
 
     @After

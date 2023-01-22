@@ -6,14 +6,15 @@ import io.ktor.server.netty.Netty
 import io.ktor.server.netty.NettyApplicationEngine
 import ns.io.app.routes.configurePlugins
 import ns.io.app.routes.configureRoutes
+import ns.io.config.ConfigurationReader
+import ns.io.config.IConfigurationReader
 
 fun main() {
     createApplicationEngine(Netty, 8080).start(wait = true)
 }
 
 private fun createApplicationEngine(appEngineFactory: Netty, appPort: Int): NettyApplicationEngine {
-    // build application context
-
+    AppContext.load()
     return embeddedServer(
         factory = appEngineFactory,
         port = appPort,

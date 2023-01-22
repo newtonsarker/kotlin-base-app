@@ -1,4 +1,4 @@
-package ns.io.client
+package ns.io.client.http
 
 import kotlinx.serialization.Serializable
 
