@@ -1,6 +1,7 @@
 package ns.io.client.http
 
 import java.util.concurrent.TimeUnit
+import ns.io.client.http.interceptors.GzipRequestInterceptor
 import okhttp3.ConnectionPool
 import okhttp3.Dispatcher
 import okhttp3.MediaType
