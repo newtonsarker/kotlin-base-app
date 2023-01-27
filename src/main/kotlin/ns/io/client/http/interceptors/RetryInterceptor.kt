@@ -28,4 +28,5 @@ class RetryInterceptor(private val maxRetries: Int) : Interceptor {
         retryCount = 0
         return response
     }
+
 }

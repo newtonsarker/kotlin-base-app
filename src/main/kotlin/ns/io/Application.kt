@@ -6,8 +6,6 @@ import io.ktor.server.netty.Netty
 import io.ktor.server.netty.NettyApplicationEngine
 import ns.io.app.routes.configurePlugins
 import ns.io.app.routes.configureRoutes
-import ns.io.config.ConfigurationReader
-import ns.io.config.IConfigurationReader
 
 fun main() {
     createApplicationEngine(Netty, 8080).start(wait = true)

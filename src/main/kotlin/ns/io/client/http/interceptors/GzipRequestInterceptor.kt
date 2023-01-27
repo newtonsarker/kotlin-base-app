@@ -10,6 +10,7 @@ import okio.GzipSink
 import okio.buffer
 
 class GzipRequestInterceptor : Interceptor {
+
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest: Request = chain.request()
         if (originalRequest.body == null || originalRequest.header("Content-Encoding") != null) {
@@ -40,4 +41,5 @@ class GzipRequestInterceptor : Interceptor {
             }
         }
     }
+
 }

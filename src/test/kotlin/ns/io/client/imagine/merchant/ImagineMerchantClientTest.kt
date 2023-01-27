@@ -16,7 +16,7 @@ import org.junit.Test
 
 class ImagineMerchantClientTest {
 
-    private val client = InstanceFactory.get(IImagineMerchantClient::class.java)
+    private val client = InstanceFactory.get(ImagineMerchantClient::class.java)
     private val mockWebServer = MockWebServer()
 
     companion object {
