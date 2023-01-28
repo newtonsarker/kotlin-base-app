@@ -9,6 +9,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
 
 class HttpClientImpl: HttpClient {
 
@@ -16,13 +17,29 @@ class HttpClientImpl: HttpClient {
     private val client = createHttpClient()
 
     override fun post(url: String, jsonPayload: String): HttpResponseWrapper<String> {
-        val request: Request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .post(jsonPayload.toRequestBody(mediaType))
             .build()
 
         val response = client.newCall(request).execute()
 
+        return wrapResponse(response)
+    }
+
+    override fun get(url: String): HttpResponseWrapper<String> {
+        val request = Request.Builder().url(url).get().build()
+        val response = client.newCall(request).execute()
+        return wrapResponse(response)
+    }
+
+    override fun delete(url: String): HttpResponseWrapper<String> {
+        val request = Request.Builder().url(url).delete().build()
+        val response = client.newCall(request).execute()
+        return wrapResponse(response)
+    }
+
+    private fun wrapResponse(response: Response): HttpResponseWrapper<String> {
         val httpResponse = HttpResponseWrapper<String>()
         httpResponse.statusCode = response.code
         httpResponse.headers = response.headers.toMultimap()

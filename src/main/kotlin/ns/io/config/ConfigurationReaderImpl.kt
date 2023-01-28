@@ -21,10 +21,6 @@ class ConfigurationReaderImpl: ConfigurationReader {
         return readImagineMerchantBaseUrl().plus(prop.getProperty("imagine.merchant.create"))
     }
 
-    override fun readImagineMerchantUpdateApi(): String {
-        return readImagineMerchantBaseUrl().plus(prop.getProperty("imagine.merchant.update"))
-    }
-
     override fun readImagineMerchantDeleteApi(): String {
         return readImagineMerchantBaseUrl().plus(prop.getProperty("imagine.merchant.delete"))
     }

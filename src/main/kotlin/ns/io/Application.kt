@@ -12,7 +12,7 @@ fun main() {
 }
 
 private fun createApplicationEngine(appEngineFactory: Netty, appPort: Int): NettyApplicationEngine {
-    AppContext.load()
+    AppContext.init()
     return embeddedServer(
         factory = appEngineFactory,
         port = appPort,

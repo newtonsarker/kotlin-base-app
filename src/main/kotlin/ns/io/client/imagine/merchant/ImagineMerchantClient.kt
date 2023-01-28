@@ -4,6 +4,8 @@ import ns.io.client.ClientResponseWrapper
 
 interface ImagineMerchantClient {
 
-    fun createMerchant(merchant: Merchant): ClientResponseWrapper<Merchant>
+    fun updateMerchant(merchant: Merchant): ClientResponseWrapper<Merchant>
+    fun selectMerchant(merchantCode: String): ClientResponseWrapper<Merchant>
+    fun deleteMerchant(merchantId: Int): ClientResponseWrapper<String?>
 
 }

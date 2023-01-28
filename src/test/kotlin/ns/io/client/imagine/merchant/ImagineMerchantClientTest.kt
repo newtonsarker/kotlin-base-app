@@ -16,14 +16,14 @@ import org.junit.Test
 
 class ImagineMerchantClientTest {
 
-    private val client = InstanceFactory.get(ImagineMerchantClient::class.java)
     private val mockWebServer = MockWebServer()
+    private val client = InstanceFactory.get(ImagineMerchantClient::class.java)
 
     companion object {
         @BeforeClass
         @JvmStatic
         fun init() {
-            AppContext.load()
+            AppContext.init()
         }
     }
 
@@ -38,12 +38,12 @@ class ImagineMerchantClientTest {
     }
 
     @Test
-    fun `should return success if the client returns correct response with status 200`() {
+    fun `should return success status if the client returns correct update response with status 200`() {
         // given
         mockWebServer.enqueue(MockResponse().setResponseCode(200).setBody("{\"merchantId\": 1001}"))
 
         // when
-        val response = client.createMerchant(createMerchant())
+        val response = client.updateMerchant(createMerchant())
 
         // then
         assertEquals(ResponseStatus.SUCCESS, response.status)
@@ -52,16 +52,16 @@ class ImagineMerchantClientTest {
     }
 
     @Test
-    fun `should return failure if the client returns status 400`() {
+    fun `should return failure status if the client returns status 400`() {
         // given
         mockWebServer.enqueue(MockResponse().setResponseCode(400))
 
         // when
-        val response = client.createMerchant(createMerchant())
+        val response = client.updateMerchant(createMerchant())
 
         // then
         assertEquals(ResponseStatus.FAILURE, response.status)
-        assertTrue(response.statusMessage!!.startsWith("Failed to process invalid response"))
+        assertTrue(response.statusMessage!!.startsWith("Failed to create or update merchant."))
         assertNull(response.response)
     }
 
@@ -71,7 +71,7 @@ class ImagineMerchantClientTest {
         mockWebServer.enqueue(MockResponse().setSocketPolicy(SocketPolicy.NO_RESPONSE))
 
         // when
-        val response = client.createMerchant(createMerchant())
+        val response = client.updateMerchant(createMerchant())
 
         // then
         assertEquals(ResponseStatus.ERROR, response.status)
@@ -85,7 +85,7 @@ class ImagineMerchantClientTest {
         mockWebServer.enqueue(MockResponse().setResponseCode(200).setBody("sadffghjewrt"))
 
         // when
-        val response = client.createMerchant(createMerchant())
+        val response = client.updateMerchant(createMerchant())
 
         // then
         assertEquals(ResponseStatus.ERROR, response.status)
