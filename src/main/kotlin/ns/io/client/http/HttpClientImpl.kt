@@ -54,24 +54,26 @@ class HttpClientImpl: HttpClient {
             // connection for each request. By default, it holds 5 connections per host.
             // maxIdleConnections: maximum number of idle connections to each route
             // keepAliveDuration: how long idle connections should be kept alive
-            .connectionPool(ConnectionPool(maxIdleConnections = 50, keepAliveDuration = 30, TimeUnit.SECONDS))
+            .connectionPool(ConnectionPool(maxIdleConnections = 1000, keepAliveDuration = 300, TimeUnit.SECONDS))
 
-            // Dispatcher: OkHttpClient uses a Dispatcher to manage the execution of requests. By default, it uses a
-            // Dispatcher that runs 64 requests in parallel.
+            // The dispatcher is responsible for managing the execution of asynchronous requests and it uses a thread
+            // pool to execute the requests. The maximum number of requests that can be executed simultaneously is
+            // controlled by the maxRequests property, which sets the maximum number of requests that can be
+            // executed concurrently.
+            // By default, it uses a dispatcher that runs 64 requests in parallel.
             .dispatcher(Dispatcher().apply { maxRequests = 100 })
 
-            // Timeouts: OkHttpClient uses timeouts to control how long to wait for a connection to be established,
+            // It uses timeouts to control how long to wait for a connection to be established,
             // how long to wait for a response, and how long to wait to read data.
-            // Timeouts can be increased to handle slow or unresponsive servers.
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
 
-            // Gzip: If the server compresses the response body using gzip, OkHttpClient can automatically
+            // If the server compresses the response body using gzip, OkHttpClient can automatically
             // decompress it. This can reduce the amount of data that needs to be sent over the network.
             .addInterceptor(GzipRequestInterceptor())
 
-            // Retry policy: OkHttpClient can retry a request if it fails due to a non-idempotent
+            // OkHttpClient can retry a request if it fails due to a non-idempotent
             // method (like a POST request), a ConnectException, or a ProtocolException.
             //.retryOnConnectionFailure(true).addInterceptor(RetryInterceptor(3))
 
