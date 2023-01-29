@@ -1,4 +1,4 @@
-package ns.io.client
+package ns.io.clients
 
 import kotlinx.serialization.Serializable
 

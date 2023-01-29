@@ -1,6 +1,6 @@
-package ns.io.client.imagine.merchant
+package ns.io.clients.imagine.merchant
 
-import ns.io.client.ClientResponseWrapper
+import ns.io.clients.ClientResponseWrapper
 
 interface ImagineMerchantClient {
 

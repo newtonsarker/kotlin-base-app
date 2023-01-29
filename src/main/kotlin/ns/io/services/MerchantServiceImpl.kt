@@ -1,9 +1,9 @@
 package ns.io.services
 
 import ns.io.InstanceFactory
-import ns.io.client.ResponseStatus
-import ns.io.client.imagine.merchant.ImagineMerchantClient
-import ns.io.client.imagine.merchant.Merchant
+import ns.io.clients.ResponseStatus
+import ns.io.clients.imagine.merchant.ImagineMerchantClient
+import ns.io.clients.imagine.merchant.Merchant
 import ns.io.exceptions.MerchantCheckException
 
 class MerchantServiceImpl : MerchantService {

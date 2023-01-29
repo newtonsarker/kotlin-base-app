@@ -4,7 +4,7 @@ import kotlin.test.assertTrue
 import kotlinx.serialization.json.Json
 import ns.io.AppContext
 import ns.io.InstanceFactory
-import ns.io.client.imagine.merchant.Merchant
+import ns.io.clients.imagine.merchant.Merchant
 import ns.io.exceptions.MerchantCheckException
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

@@ -1,9 +1,9 @@
-package ns.io.client.imagine.merchant
+package ns.io.clients.imagine.merchant
 
 import kotlin.test.assertTrue
 import ns.io.AppContext
 import ns.io.InstanceFactory
-import ns.io.client.ResponseStatus
+import ns.io.clients.ResponseStatus
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.SocketPolicy

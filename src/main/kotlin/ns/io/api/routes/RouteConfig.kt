@@ -1,4 +1,4 @@
-package ns.io.app.routes
+package ns.io.api.routes
 
 import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
@@ -7,6 +7,5 @@ import io.ktor.server.routing.routing
 fun Application.configureRoutes() {
     routing {
         addOrUpdateMerchant()
-        getMerchantById()
     }
 }

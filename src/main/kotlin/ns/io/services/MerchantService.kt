@@ -1,6 +1,6 @@
 package ns.io.services
 
-import ns.io.client.imagine.merchant.Merchant
+import ns.io.clients.imagine.merchant.Merchant
 
 interface MerchantService {
 

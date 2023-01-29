@@ -1,4 +1,4 @@
-package ns.io.client.imagine.merchant
+package ns.io.clients.imagine.merchant
 
 import kotlinx.serialization.Serializable
 

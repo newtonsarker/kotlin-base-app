@@ -1,4 +1,4 @@
-package ns.io.client.http.interceptors
+package ns.io.clients.http.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.MediaType

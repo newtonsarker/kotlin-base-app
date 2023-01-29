@@ -1,4 +1,4 @@
-package ns.io.client.http
+package ns.io.clients.http
 
 interface HttpClient {
 

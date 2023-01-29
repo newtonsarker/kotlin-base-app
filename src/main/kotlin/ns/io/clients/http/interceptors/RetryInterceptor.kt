@@ -1,4 +1,4 @@
-package ns.io.client.http.interceptors
+package ns.io.clients.http.interceptors
 
 import java.io.IOException
 import okhttp3.Interceptor

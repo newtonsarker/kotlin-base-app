@@ -1,9 +1,9 @@
 package ns.io
 
-import ns.io.client.imagine.merchant.ImagineMerchantClient
-import ns.io.client.imagine.merchant.ImagineMerchantClientImpl
-import ns.io.client.http.HttpClientImpl
-import ns.io.client.http.HttpClient
+import ns.io.clients.imagine.merchant.ImagineMerchantClient
+import ns.io.clients.imagine.merchant.ImagineMerchantClientImpl
+import ns.io.clients.http.HttpClientImpl
+import ns.io.clients.http.HttpClient
 import ns.io.config.ConfigurationReaderImpl
 import ns.io.config.ConfigurationReader
 import ns.io.services.MerchantService

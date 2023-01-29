@@ -1,4 +1,4 @@
-package ns.io.client.imagine.merchant
+package ns.io.clients.imagine.merchant
 
 import io.ktor.http.HttpStatusCode
 import java.io.IOException
@@ -6,9 +6,9 @@ import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import ns.io.InstanceFactory
-import ns.io.client.ClientResponseWrapper
-import ns.io.client.ResponseStatus
-import ns.io.client.http.HttpClient
+import ns.io.clients.ClientResponseWrapper
+import ns.io.clients.ResponseStatus
+import ns.io.clients.http.HttpClient
 import ns.io.config.ConfigurationReader
 
 class ImagineMerchantClientImpl: ImagineMerchantClient {
